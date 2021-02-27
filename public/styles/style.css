@@ -8,19 +8,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: top;
-    padding-top: 5rem;
-    height: 100vh;
+    height: auto;
 }
 
 .container {
     padding: 3rem;
     width: 100%;
+    margin-top: 5rem;
     max-width: 600px;
+    min-width: 300px;
     padding-top: 0;
 }
 
 .title {
-    color: #2F94D8;
+    color: #33383b;
     font-family: monospace;
     width: 100%;
     align-items: center;
@@ -30,7 +31,7 @@ body {
 }
 
 .subtitle {
-    color: #9DB0C1;
+    color: #8f9296;
     font-family: monospace;
     width: 100%;
     align-items: center;
@@ -46,7 +47,7 @@ input[type="search"] {
     background-color: white;
     vertical-align: middle;
     border-radius: 0.25rem;
-    border: 1px solid #9DB0C1;
+    border: 1px solid #8f9296;
     font-size: 1rem;
     width: 100%;
     line-height: 2;
@@ -78,25 +79,25 @@ input[type="search"].dark::-webkit-search-cancel-button {
 
 input[type="search"]:focus {
     transition: all 0.5s;
-    box-shadow: 0 0 10px #2F94D8;
-    border-color: #2F94D8;
+    box-shadow: 0 0 10px #33383b;
+    border-color: #33383b;
     outline: none;
 }
 
 ::placeholder {
-    color: #9DB0C1;
+    color: #8f9296;
     opacity: 1;
     /* Firefox */
 }
 
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: #9DB0C1;
+    color: #8f9296;
 }
 
 ::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: #9DB0C1;
+    color: #8f9296;
 }
 
 form.search-form {
@@ -150,7 +151,7 @@ input.search-submit {
     line-height: 1.15;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
-    background: #2F94D8;
+    background: #33383b;
     color: #ffffff;
     border: 1px solid transparent;
     vertical-align: middle;
@@ -162,7 +163,7 @@ input.search-submit {
 
 .button:hover, .button:active, .button:focus {
     cursor: pointer;
-    background: #2F94D8;
+    background: #33383b;
     color: #ffffff;
     outline: 0;
 }
@@ -173,36 +174,96 @@ input.search-submit {
     background-clip: padding-box;
     vertical-align: middle;
     border-radius: 0.25rem;
-    border: 1px solid #9DB0C1;
+    border: 1px solid #8f9296;
     font-size: 1rem;
     width: 100%;
     line-height: 2;
     padding: 1rem 0;
 }
 
-.word{
+.word {
     margin-left: 1rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
-    color: #2F94D8;
+    color: #33383b;
 }
 
 .divider {
     height: 1px;
-    background-color: #9DB0C1;
+    background-color: #8f9296;
     width: 100%;
     outline: none;
     border: 0px;
 }
 
-.meaning{
+.meaning {
     margin-left: 1rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: normal;
     margin-top: 0;
     margin-bottom: 0;
-    color: #2F94D8;
+    color: #33383b;
     opacity: 0.9;
+}
+
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #292c2f;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font: normal 14px sans-serif;
+    padding: 1rem 2rem;
+    border: none;
+}
+
+footer .footer-left p {
+    color: #8f9296;
+    font-size: 11px;
+    margin: 0;
+    border: none;
+}
+
+footer p.name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 0;
+    transition: ease .25s;
+}
+
+footer .footer-right {
+    float: right;
+    border: none;
+}
+
+footer .footer-right a {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    transition: all .25s;
+    outline: none;
+}
+
+footer .footer-right a:hover, footer .footer-right a:active, footer .footer-right a:focus {
+    cursor: pointer;
+    outline: 0;
+    width: auto;
+    height: auto;
+    user-select: none;
+}
+
+footer .footer-right a:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
 }
