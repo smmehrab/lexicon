@@ -46,7 +46,7 @@ input[type="search"] {
     background-color: white;
     vertical-align: middle;
     border-radius: 0.25rem;
-    border: 1px solid #e0e0e5;
+    border: 1px solid #9DB0C1;
     font-size: 1rem;
     width: 100%;
     line-height: 2;
@@ -165,4 +165,44 @@ input.search-submit {
     background: #2F94D8;
     color: #ffffff;
     outline: 0;
+}
+
+.output {
+    margin-top: 2rem;
+    background-color: transparent;
+    background-clip: padding-box;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+    border: 1px solid #9DB0C1;
+    font-size: 1rem;
+    width: 100%;
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.word{
+    margin-left: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #2F94D8;
+}
+
+.divider {
+    height: 1px;
+    background-color: #9DB0C1;
+    width: 100%;
+    outline: none;
+    border: 0px;
+}
+
+.meaning{
+    margin-left: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #2F94D8;
+    opacity: 0.9;
 }
