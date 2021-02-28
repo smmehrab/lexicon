@@ -8,13 +8,19 @@ var info = document.getElementById('info');
 var outputWord = document.getElementById('outputWord');
 var outputPronunciation = document.getElementById('outputPronunciation');
 var outputMeaning = document.getElementById('outputMeaning');
-var tags = document.getElementsByClassName('tags')[0];
+var outputSynonym = document.getElementById('outputSynonym');
+var tags;
 
 // Variables
 var dictionary, hash, performance;
 
 window.onload = function () {
     console.log('Window Loaded');
+    output.addEventListener('click', (event)=>{
+        console.log("Search in Google Translate");
+        var url = "https://translate.google.com/?sl=en&tl=bn&text=" + searchedWord.value.toLowerCase() + "&op=translate"
+        window.open(url,'_blank');
+    });
     main();
 }
 
@@ -42,9 +48,14 @@ function main() {
 // Search Function
 function search(input) {
     var word;
-    if (input) word = input;
-    else word = searchedWord.value.toLowerCase();
-    var primaryHash = hash.findPrimary(word);
+    if (input) {
+        word = input;
+        searchedWord.value = input;
+    }
+    else {
+        word = searchedWord.value.toLowerCase();
+    }
+        var primaryHash = hash.findPrimary(word);
     var secondaryHash;
 
     openOutput();
@@ -76,7 +87,7 @@ function search(input) {
                 }
             }
 
-            tags.innerHTML = '';
+            outputSynonym.innerHTML = `Synonyms<br><ul class="tags"></ul>`;
             for (let i = 0; i < 5 && i < en_synonyms.length; i++) {
                 if (en_synonyms[i] != word) {
                     addTag(en_synonyms[i]);
@@ -90,6 +101,8 @@ function search(input) {
         console.log(error);
         outputWord.innerHTML = 'Word Not Found';
         outputMeaning.innerHTML = '';
+        outputPronunciation.innerHTML = "This word hasn't yet been included in our collection.";
+        outputSynonym.innerHTML = 'Please, Try Another!';
     };
 
     return false;
@@ -131,10 +144,11 @@ function addTag(synonym) {
     a.appendChild(document.createTextNode(synonym));
     var li = document.createElement('li');
     li.appendChild(a);
-    tags.appendChild(li);
+    document.getElementsByClassName('tags')[0].appendChild(li);
 
     li.addEventListener("click", function (e) {
         e.preventDefault();
+        e.stopPropagation();
         search(e.target.innerHTML);
         console.log(e.target.innerHTML);
     });
