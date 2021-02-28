@@ -6,13 +6,14 @@ var clear = document.getElementById('clear');
 var info = document.getElementById('info');
 
 var outputWord = document.getElementById('outputWord');
+var outputPronunciation = document.getElementById('outputPronunciation');
 var outputMeaning = document.getElementById('outputMeaning');
 var tags = document.getElementsByClassName('tags')[0];
 
 // Variables
 var dictionary, hash, performance;
 
-window.onload = function() {
+window.onload = function () {
     console.log('Window Loaded');
     main();
 }
@@ -20,7 +21,7 @@ window.onload = function() {
 // Main Function
 function main() {
     var dataset = fetch(DATASET).then(response => {
-        if(!response.ok) {
+        if (!response.ok) {
             throw new Error("Error: " + response.status);
         }
         return response.json();
@@ -39,17 +40,17 @@ function main() {
 }
 
 // Search Function
-function search(input){
+function search(input) {
     var word;
-    if(input) word = input;
+    if (input) word = input;
     else word = searchedWord.value.toLowerCase();
     var primaryHash = hash.findPrimary(word);
     var secondaryHash;
 
     openOutput();
 
-    try{
-        if(hash.hashTableKeys[primaryHash] == null){
+    try {
+        if (hash.hashTableKeys[primaryHash] == null) {
             throw 'Word Not Found';
         }
 
@@ -58,22 +59,26 @@ function search(input){
         const m = hash.hashTableKeys[primaryHash][2];
         secondaryHash = hash.findSecondary(a, b, m, word);
 
-        if(hash.hashTable[primaryHash][secondaryHash] && dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].en == word) {
+        if (hash.hashTable[primaryHash][secondaryHash] && dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].en == word) {
             outputWord.innerHTML = word;
-            var meaning = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].bn;
-            var bn_synonyms = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].bn_syns;
-            var en_synonyms = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].en_syns;
+            var data = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]];
+            var meaning = data.bn;
+            var pronunciation = data.pron[0];
+            var bn_synonyms = data.bn_syns;
+            var en_synonyms = data.en_syns;
+
+            if (pronunciation != '') outputPronunciation.innerHTML = pronunciation;
 
             outputMeaning.innerHTML = meaning;
-            for(let i=0; i<5 && i<bn_synonyms.length; i++) {
-                if(bn_synonyms[i]!=meaning) {
+            for (let i = 0; i < 5 && i < bn_synonyms.length; i++) {
+                if (bn_synonyms[i] != meaning) {
                     outputMeaning.innerHTML += ", " + bn_synonyms[i];
                 }
             }
 
             tags.innerHTML = '';
-            for(let i=0; i<5 && i<en_synonyms.length; i++) {
-                if(en_synonyms[i]!=word) {
+            for (let i = 0; i < 5 && i < en_synonyms.length; i++) {
+                if (en_synonyms[i] != word) {
                     addTag(en_synonyms[i]);
                 }
             }
@@ -81,7 +86,7 @@ function search(input){
         else {
             throw 'Word Not Found';
         }
-    } catch(error){
+    } catch (error) {
         console.log(error);
         outputWord.innerHTML = 'Word Not Found';
         outputMeaning.innerHTML = '';
@@ -91,13 +96,14 @@ function search(input){
 }
 
 // Clear Previous Search
-function clearSearch(){
+function clearSearch() {
     console.log("Search Cleared");
     closeOutput();
     searchedWord.value = '';
     return false;
 }
 
+// Show Output
 function openOutput() {
     output.classList.remove('hide');
     output.classList.add('show');
@@ -107,6 +113,7 @@ function openOutput() {
     info.classList.add('hide');
 }
 
+// Close Output
 function closeOutput() {
     output.classList.remove('show');
     output.classList.add('hide');
@@ -126,9 +133,9 @@ function addTag(synonym) {
     li.appendChild(a);
     tags.appendChild(li);
 
-    li.addEventListener("click", function(e) {
+    li.addEventListener("click", function (e) {
         e.preventDefault();
         search(e.target.innerHTML);
         console.log(e.target.innerHTML);
     });
-  }
+}
