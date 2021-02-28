@@ -34,7 +34,5 @@ An English to Bangla Dictionary with Perfect Hashing
 
 > These may vary.
 
-<br>
-
 ## Dataset
 Source: [BengaliDictionary - Minhas Kamal](https://github.com/MinhasKamal/BengaliDictionary).
