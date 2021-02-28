@@ -7,6 +7,7 @@ var info = document.getElementById('info');
 
 var outputWord = document.getElementById('outputWord');
 var outputMeaning = document.getElementById('outputMeaning');
+var tags = document.getElementsByClassName('tags')[0];
 
 // Variables
 var dictionary, hash, performance;
@@ -38,8 +39,10 @@ function main() {
 }
 
 // Search Function
-function search(){
-    var word = searchedWord.value.toLowerCase();
+function search(input){
+    var word;
+    if(input) word = input;
+    else word = searchedWord.value.toLowerCase();
     var primaryHash = hash.findPrimary(word);
     var secondaryHash;
 
@@ -59,11 +62,19 @@ function search(){
             outputWord.innerHTML = word;
             var meaning = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].bn;
             var bn_synonyms = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].bn_syns;
+            var en_synonyms = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].en_syns;
 
             outputMeaning.innerHTML = meaning;
-            for(i=0; i<5 && i<bn_synonyms.length; i++) {
+            for(let i=0; i<5 && i<bn_synonyms.length; i++) {
                 if(bn_synonyms[i]!=meaning) {
                     outputMeaning.innerHTML += ", " + bn_synonyms[i];
+                }
+            }
+
+            tags.innerHTML = '';
+            for(let i=0; i<5 && i<en_synonyms.length; i++) {
+                if(en_synonyms[i]!=word) {
+                    addTag(en_synonyms[i]);
                 }
             }
         }
@@ -104,3 +115,20 @@ function closeOutput() {
     info.classList.remove('hide');
     info.classList.add('show');
 }
+
+// Tags
+function addTag(synonym) {
+    var a = document.createElement('a');
+    a.classList.add('tag');
+    a.href = "#/";
+    a.appendChild(document.createTextNode(synonym));
+    var li = document.createElement('li');
+    li.appendChild(a);
+    tags.appendChild(li);
+
+    li.addEventListener("click", function(e) {
+        e.preventDefault();
+        search(e.target.innerHTML);
+        console.log(e.target.innerHTML);
+    });
+  }

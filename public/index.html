@@ -29,7 +29,8 @@
             <!-- Input -->
             <form class="search-form form" onsubmit="return search()">
                 <label>
-                    <input id="searchedWord" type="search" class="search-field" placeholder="Find Meaning..." autocomplete="off" />
+                    <input id="searchedWord" type="search" class="search-field" placeholder="Find Meaning..."
+                        autocomplete="off" />
                 </label>
                 <input type="submit" class="search-submit button" value="&#xf002" />
             </form>
@@ -39,11 +40,18 @@
                 <h2 id="outputWord">Word</h2>
                 <h5 id="outputPronunciation">Pronunciation</h5>
                 <h4 id="outputMeaning">শব্দ, শব্দ, শব্দ, শব্দ</h4>
-                <h5 id="outputSynonym">Synonyms<br>Synonyms, Synonyms, Synonyms, Synonyms</h4>
+                <h5 id="outputSynonym">
+                    Synonyms
+                    <br>
+                    <ul class="tags">
+                        <!-- <li><a href="#/" class="tag">HTML</a></li>
+                        <li><a href="#/" class="tag">CSS</a></li>
+                        <li><a href="#/" class="tag">JavaScript</a></li> -->
+                    </ul>
+                </h5>
             </div>
             <button id="clear" class="hide" onclick="clearSearch()"><span style="font-size: 16px;">Clear</span></button>
             <h5 id="info">16912 Words & Still Counting...</h5>
-
         </div>
     </div>
 
