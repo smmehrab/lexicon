@@ -185,12 +185,42 @@ input.search-submit {
 }
 
 #outputWord {
-    margin-left: 1rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
+    margin-left: 1rem;
     color: #33383b;
+    line-height: 1;
+}
+
+#outputPronunciation {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    margin-left: 1rem;
+    color: #8f9296;
+}
+
+#outputMeaning {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    margin: 0;
+    margin-left: 1rem;
+    margin-top: 0.75rem;
+    color: #33383b;
+    opacity: 0.9;
+}
+
+#outputSynonym {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    margin: 0;
+    margin-left: 1rem;
+    margin-top: 0.75rem;
+    color: #8f9296;
+    opacity: 0.9;
 }
 
 .divider {
@@ -199,16 +229,6 @@ input.search-submit {
     width: 100%;
     outline: none;
     border: 0px;
-}
-
-#outputMeaning {
-    margin-left: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: normal;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #33383b;
-    opacity: 0.9;
 }
 
 
