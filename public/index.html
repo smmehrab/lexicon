@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!--Title-->
+    <title>Lexicon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--Styles-->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
+
+    <!--CDNs-->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+
+            <!-- Header -->
+            <h1 id="title">Lexicon</h1>
+            <h3 id="subtitle">An English to Bangla Dictionary</h3>
+
+            <!-- Input -->
+            <form class="search-form form" onsubmit="return search()">
+                <label>
+                    <input id="searchedWord" type="search" class="search-field" placeholder="Find Meaning..."
+                        autocomplete="off" />
+                </label>
+                <input type="submit" class="search-submit button" value="&#xf002" />
+            </form>
+
+            <!-- Output -->
+            <div class="output hide" title="Search on Google Translate">
+                <h2 id="outputWord">Word</h2>
+                <h5 id="outputPronunciation">Pronunciation</h5>
+                <h4 id="outputMeaning">শব্দ, শব্দ, শব্দ, শব্দ</h4>
+                <h5 id="outputSynonym">
+                    Synonyms
+                    <br>
+                    <ul class="tags">
+                        <!-- <li><a href="#/" class="tag">HTML</a></li>
+                        <li><a href="#/" class="tag">CSS</a></li>
+                        <li><a href="#/" class="tag">JavaScript</a></li> -->
+                    </ul>
+                </h5>
+            </div>
+            <button id="clear" class="hide" onclick="clearSearch()"><span style="font-size: 16px;">Clear</span></button>
+            <h5 id="info">16912 Words & Still Counting...</h5>
+        </div>
+    </div>
+
+    <!-- dummy div for correct positioning -->
+    <div style="width: 100%; height: 100px; position: relative; background-color: transparent;"></div>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-right">
+            <a href="https://github.com/smmehrab/lexicon"><img src="assets/pngs/github.png" alt=""></a>
+        </div>
+        <div class="footer-left">
+            <p class="name">S.M.Mehrabul Islam</p>
+            <p class="username">smmehrab</p>
+        </div>
+    </footer>
+
+    <!--Scripts-->
+    <!--Algorithm-->
+    <script src="scripts/algorithm/constants.js"></script>
+    <script src="scripts/algorithm/dictionary.js"></script>
+    <script src="scripts/algorithm/performance.js"></script>
+    <script src="scripts/algorithm/hash.js"></script>
+    <!--App-->
+    <script src="scripts/app.js"></script>
+
+</body>
+
+</html>
