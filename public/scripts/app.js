@@ -1,3 +1,13 @@
+// DOM Elements
+var searchedWord = document.getElementById('searchedWord');
+
+var output = document.getElementsByClassName('output')[0];
+var clear = document.getElementById('clear');
+var info = document.getElementById('info');
+
+var outputWord = document.getElementById('outputWord');
+var outputMeaning = document.getElementById('outputMeaning');
+
 // Variables
 var dictionary, hash, performance;
 
@@ -29,19 +39,11 @@ function main() {
 
 // Search Function
 function search(){
-    var searchedWord = document.getElementById('searchedWord');
-
-    var output = document.getElementsByClassName('output')[0];
-    var info = document.getElementById('info');
-
-    toggleOutput(output, info);
-
-    var outputWord = document.getElementById('outputWord');
-    var outputMeaning = document.getElementById('outputMeaning');
-
     var word = searchedWord.value.toLowerCase();
     var primaryHash = hash.findPrimary(word);
     var secondaryHash;
+
+    openOutput();
 
     try{
         if(hash.hashTableKeys[primaryHash] == null){
@@ -77,15 +79,28 @@ function search(){
     return false;
 }
 
-// Clear Search Function
+// Clear Previous Search
 function clearSearch(){
-    console.log("Cleared");
+    console.log("Search Cleared");
+    closeOutput();
+    searchedWord.value = '';
     return false;
 }
 
-function toggleOutput(output, info) {
+function openOutput() {
     output.classList.remove('hide');
     output.classList.add('show');
+    clear.classList.remove('hide');
+    clear.classList.add('show');
     info.classList.remove('show');
     info.classList.add('hide');
+}
+
+function closeOutput() {
+    output.classList.remove('show');
+    output.classList.add('hide');
+    clear.classList.remove('show');
+    clear.classList.add('hide');
+    info.classList.remove('hide');
+    info.classList.add('show');
 }
