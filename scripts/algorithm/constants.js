@@ -1,4 +1,4 @@
-const DATASET = 'https://raw.githubusercontent.com/smmehrab/lexicon/algorithm/datasets/dataset.json?token=AKXIOFT5O37YX4B6PVJQLKLAIOUQU';
+const DATASET = 'https://raw.githubusercontent.com/smmehrab/lexicon/master/datasets/dataset.json?token=AKXIOFT5O37YX4B6PVJQLKLAIOUQU';
 
 const RADIX = 256;
 const PRIME = 908209935089;  // 12 digits
