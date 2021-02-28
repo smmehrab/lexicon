@@ -25,12 +25,11 @@ An English to Bangla Dictionary with Perfect Hashing
 ## Performance
 <br>
 
-**Hashing Took:** 79ms <br>
+**Average Time:** 79ms <br>
 **Total Entries:** 16912 <br>
-**Total Slots:** 16912 <br>
-**Total Buckets:** 33707 <br>
-**Longest chain for a single slot:** N/A <br>
-**Most collision in a slot:** 7 <br>
+**Total Slots for Primary Hashing:** 16912 <br>
+**Sum of the Hashed Slots (sum(n<sub>j</sub><sup>2</sup>)):** 33707 <br>
+**Maximum Number of Collision in a Slot:** 7 <br>
 **Empty Slot:** 6243 <br>
 
 > These may vary.
