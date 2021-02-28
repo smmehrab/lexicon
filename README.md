@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://smmehrab.github.io/lexicon/">
-        <img src="https://github.com/smmehrab/lexicon/blob/documentation/public/assets/pngs/lexicon.png">
+        <img src="https://github.com/smmehrab/lexicon/blob/master/assets/pngs/lexicon.png">
     </a>
 </div>
 
