@@ -30,6 +30,12 @@ function main() {
 // Search Function
 function search(){
     var searchedWord = document.getElementById('searchedWord');
+
+    var output = document.getElementsByClassName('output')[0];
+    var info = document.getElementById('info');
+
+    toggleOutput(output, info);
+
     var outputWord = document.getElementById('outputWord');
     var outputMeaning = document.getElementById('outputMeaning');
 
@@ -75,4 +81,11 @@ function search(){
 function clearSearch(){
     console.log("Cleared");
     return false;
+}
+
+function toggleOutput(output, info) {
+    output.classList.remove('hide');
+    output.classList.add('show');
+    info.classList.remove('show');
+    info.classList.add('hide');
 }

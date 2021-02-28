@@ -184,6 +184,14 @@ input.search-submit {
     outline: none;
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: inherit;
+}
+
 #outputWord {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
@@ -222,6 +230,17 @@ input.search-submit {
     color: #8f9296;
     opacity: 0.9;
 }
+
+
+#info {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    margin: 1rem;
+    color: #8f9296;
+}
+
 
 .divider {
     height: 1px;
