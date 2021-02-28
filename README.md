@@ -4,8 +4,10 @@
     </a>
 </div>
 
-<div align="center">
+<br>
 
+<div align="center">
+    
 [![Generic language](https://img.shields.io/badge/Language-Javascript-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Generic demo](https://img.shields.io/badge/Demo-Active-Green.svg)](https://shields.io/)
 [![Generic license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/smmehrab/lexicon/blob/documentation/LICENSE)
