@@ -177,6 +177,7 @@ input.search-submit {
 }
 
 .output:hover {
+    cursor: pointer;
     transition: all 0.5s;
     box-shadow: 0 0 5px #33383b;
     border-color: #33383b;
