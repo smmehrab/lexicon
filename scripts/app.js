@@ -6,6 +6,7 @@ var clear = document.getElementById('clear');
 var info = document.getElementById('info');
 
 var outputWord = document.getElementById('outputWord');
+var outputListen = document.getElementById('outputListen');
 var outputPronunciation = document.getElementById('outputPronunciation');
 var outputMeaning = document.getElementById('outputMeaning');
 var outputSynonym = document.getElementById('outputSynonym');
@@ -14,14 +15,41 @@ var tags;
 // Variables
 var dictionary, hash, performance;
 
+// On Window Load
 window.onload = function () {
     console.log('Window Loaded');
+    
     output.addEventListener('click', (event)=>{
         console.log("Search in Google Translate");
         var url = "https://translate.google.com/?sl=en&tl=bn&text=" + searchedWord.value.toLowerCase() + "&op=translate"
         window.open(url,'_blank');
     });
+
+    outputListen.addEventListener('click', (event)=>{
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (!('speechSynthesis' in window)) {
+            alert("Sorry, your browser doesn't support speech synthesis.");
+        } 
+
+        var word = outputWord.innerHTML;
+        console.log("Listen to Pronunciation: " + word);
+        if (word.length>0) {
+            speak(word);
+        }
+    });
+    
     main();
+}
+
+// Speech Synthesis
+function speak(text) {
+    var utterance = new SpeechSynthesisUtterance();
+    utterance.voice = window.speechSynthesis.getVoices()[1];
+    utterance.lang = 'en-US';
+    utterance.text = text;
+    window.speechSynthesis.speak(utterance);
 }
 
 // Main Function
@@ -55,7 +83,7 @@ function search(input) {
     else {
         word = searchedWord.value.toLowerCase();
     }
-        var primaryHash = hash.findPrimary(word);
+    var primaryHash = hash.findPrimary(word);
     var secondaryHash;
 
     openOutput();
@@ -108,14 +136,6 @@ function search(input) {
     return false;
 }
 
-// Clear Previous Search
-function clearSearch() {
-    console.log("Search Cleared");
-    closeOutput();
-    searchedWord.value = '';
-    return false;
-}
-
 // Show Output
 function openOutput() {
     output.classList.remove('hide');
@@ -152,4 +172,12 @@ function addTag(synonym) {
         search(e.target.innerHTML);
         console.log(e.target.innerHTML);
     });
+}
+
+// Clear Previous Search
+function clearSearch() {
+    console.log("Search Cleared");
+    closeOutput();
+    searchedWord.value = '';
+    return false;
 }
