@@ -100,6 +100,8 @@ function search(input) {
 
         if (hash.hashTable[primaryHash][secondaryHash] && dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]].en == word) {
             outputWord.innerHTML = word;
+            outputListen.style.display = "inline-block";
+
             var data = dictionary.getDataset()[hash.hashTable[primaryHash][secondaryHash]];
             var meaning = data.bn;
             var pronunciation = data.pron[0];
@@ -110,7 +112,7 @@ function search(input) {
 
             outputMeaning.innerHTML = meaning;
             for (let i = 0; i < 5 && i < bn_synonyms.length; i++) {
-                if (bn_synonyms[i] != meaning) {
+                if (bn_synonyms[i].length>1 && bn_synonyms[i] != meaning) {
                     outputMeaning.innerHTML += ", " + bn_synonyms[i];
                 }
             }
@@ -128,6 +130,7 @@ function search(input) {
     } catch (error) {
         console.log(error);
         outputWord.innerHTML = 'Word Not Found';
+        outputListen.style.display = "none";
         outputMeaning.innerHTML = '';
         outputPronunciation.innerHTML = "This word hasn't yet been included in our collection.";
         outputSynonym.innerHTML = 'Please, Try Another!';
