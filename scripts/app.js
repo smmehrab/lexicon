@@ -184,3 +184,4 @@ function clearSearch() {
     searchedWord.value = '';
     return false;
 }
+
