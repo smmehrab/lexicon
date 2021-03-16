@@ -198,6 +198,7 @@ input.search-submit {
 }
 
 #outputWord {
+    display: inline-block;
     font-family: 'Courier New', Courier, monospace;
     font-weight: normal;
     margin: 0;
@@ -205,6 +206,28 @@ input.search-submit {
     margin-left: 1rem;
     color: #33383b;
     line-height: 1;
+}
+
+#outputListen {
+    display: inline-block;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 0px;
+    padding: 0.25rem;
+    margin-left: 0.25rem;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+#outputListen:hover, #outputListen:active, #outputListen:focus {
+    outline: 0;
+}
+
+#outputListen:active {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
 }
 
 #outputPronunciation {

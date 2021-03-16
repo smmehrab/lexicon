@@ -6,6 +6,7 @@ var clear = document.getElementById('clear');
 var info = document.getElementById('info');
 
 var outputWord = document.getElementById('outputWord');
+var outputListen = document.getElementById('outputListen');
 var outputPronunciation = document.getElementById('outputPronunciation');
 var outputMeaning = document.getElementById('outputMeaning');
 var outputSynonym = document.getElementById('outputSynonym');
@@ -16,11 +17,20 @@ var dictionary, hash, performance;
 
 window.onload = function () {
     console.log('Window Loaded');
+    
     output.addEventListener('click', (event)=>{
         console.log("Search in Google Translate");
         var url = "https://translate.google.com/?sl=en&tl=bn&text=" + searchedWord.value.toLowerCase() + "&op=translate"
         window.open(url,'_blank');
     });
+
+    outputListen.addEventListener('click', (event)=>{
+        event.preventDefault();
+        event.stopPropagation();
+        var word = outputWord.innerHTML;
+        console.log("Listen to Pronunciation: " + word);
+    });
+    
     main();
 }
 
@@ -55,7 +65,7 @@ function search(input) {
     else {
         word = searchedWord.value.toLowerCase();
     }
-        var primaryHash = hash.findPrimary(word);
+    var primaryHash = hash.findPrimary(word);
     var secondaryHash;
 
     openOutput();
